@@ -1,4 +1,5 @@
 import 'package:aqcss/ui/auth/Login_screens.dart';
+import 'package:aqcss/ui/screen/create%20a%20pass.dart';
 import 'package:aqcss/ui/screen/resident_home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: GoogleFonts.poppins().fontFamily,
       ),
-      home: ResidentHome(),
+      home: CreatePasss(),
     );
   }
 }

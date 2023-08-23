@@ -8,6 +8,7 @@ class CustomTextField extends StatelessWidget {
   final String hint;
   final Function(String) error;
   final bool? isPassword;
+  final bool? isEnable;
 
   // final Icon prefixIcon;
 
@@ -17,7 +18,7 @@ class CustomTextField extends StatelessWidget {
       required this.controller,
       required this.hint,
       required this.error,
-      this.isPassword = false,  });
+      this.isPassword = false, this.isEnable=true,  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class CustomTextField extends StatelessWidget {
           height: 5,
         ),
         TextFormField(
-
+          enabled: isEnable,
           obscureText: isPassword!,
           controller: controller,
           validator: (err) => error(err!),
