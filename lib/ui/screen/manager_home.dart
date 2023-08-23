@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../utils/constant.dart';
 import '../../utils/customtext.dart';
+import 'create_artical.dart';
 
 class ManagerHome extends StatefulWidget {
   const ManagerHome({Key? key}) : super(key: key);
@@ -280,32 +281,37 @@ class _ManagerHomeState extends State<ManagerHome> {
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.grey,
                     elevation: 5,
-                    child: Container(
-                      height: 150,
-                      width: 150,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.white, width: 2),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            child: Align(
-                                alignment: Alignment.center,
-                                child: Image.asset(
-                                    'assets/icons/commentgreen-alt 1.png')),
-                          ),
-                          CustomText(
-                              text: 'Create Article',
-                              fontsize: 12,
-                              fontWeight: FontWeight.w700,
-                              textcolor: Colors.black),
-                        ],
+                    child: InkWell(
+                      onTap: (){
+                        NavigationHelper.navPush(CreateArtical(), context);
+                      },
+                      child: Container(
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.white, width: 2),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              child: Align(
+                                  alignment: Alignment.center,
+                                  child: Image.asset(
+                                      'assets/icons/commentgreen-alt 1.png')),
+                            ),
+                            CustomText(
+                                text: 'Create Article',
+                                fontsize: 12,
+                                fontWeight: FontWeight.w700,
+                                textcolor: Colors.black),
+                          ],
+                        ),
                       ),
                     ),
                   ),
