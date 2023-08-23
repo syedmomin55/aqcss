@@ -1,8 +1,12 @@
+import 'package:aqcss/navigation/navigator_push.dart';
+import 'package:aqcss/ui/screen/check_point_home.dart';
+import 'package:aqcss/ui/screen/manager_home.dart';
 import 'package:aqcss/utils/customtext.dart';
 import 'package:aqcss/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/custom_text_field.dart';
+import '../screen/resident_home.dart';
 
 class UserInfo extends StatefulWidget {
   const UserInfo({Key? key}) : super(key: key);
@@ -18,7 +22,7 @@ class _UserInfoState extends State<UserInfo> {
     'Security',
     'Resident',
   ];
-  String allCatagories = '';
+  String selectedCatagory = '';
   TextEditingController _email = TextEditingController();
   TextEditingController _pin = TextEditingController();
   TextEditingController _password = TextEditingController();
@@ -100,11 +104,9 @@ class _UserInfoState extends State<UserInfo> {
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
               InkWell(
-                onTap: (){
-                  showCatagories= !showCatagories;
-                  setState(() {
-
-                  });
+                onTap: () {
+                  showCatagories = !showCatagories;
+                  setState(() {});
                 },
                 child: Container(
                   height: 50,
@@ -117,7 +119,9 @@ class _UserInfoState extends State<UserInfo> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: CustomText(
-                          text: allCatagories == '' ? 'select type' : allCatagories,
+                          text: selectedCatagory == ''
+                              ? 'select type'
+                              : selectedCatagory,
                           fontsize: 14,
                           fontWeight: FontWeight.w500,
                           textcolor: Colors.black),
@@ -137,7 +141,7 @@ class _UserInfoState extends State<UserInfo> {
                           itemBuilder: (context, index) {
                             return InkWell(
                               onTap: () {
-                                allCatagories = allItem[index];
+                                selectedCatagory = allItem[index];
                                 showCatagories = false;
                                 setState(() {});
                               },
@@ -162,7 +166,19 @@ class _UserInfoState extends State<UserInfo> {
                   buttonText: 'Get Started',
                   paddingHor: 10,
                   paddingver: 10,
-                  onTap: () {}),
+                  onTap: () {
+                      if (selectedCatagory == 'Resident') {
+                        NavigationHelper.navRemoveUntil(ResidentHome(), context);
+                      } else if (selectedCatagory == 'Security') {
+                        NavigationHelper.navRemoveUntil(CheckPointHome(), context);
+                      } else {
+                        NavigationHelper.navRemoveUntil(ManagerHome(), context);
+                      }
+                    }
+
+
+
+                  ),
             ],
           ),
         ),

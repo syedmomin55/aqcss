@@ -73,13 +73,16 @@ class _CreateArticalState extends State<CreateArtical> {
                   Stack(
                     children: [
                       Container(
-                        child: TextField(
-                          maxLines: 100,
-                          decoration: InputDecoration(
-                              hintText: 'body',
-                              hintStyle: TextStyle(color: Colors.grey),
-                              border: UnderlineInputBorder(
-                                  borderSide: BorderSide.none)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextField(
+                            maxLines: 100,
+                            decoration: InputDecoration(
+                                hintText: 'body',
+                                hintStyle: TextStyle(color: Colors.grey),
+                                border: UnderlineInputBorder(
+                                    borderSide: BorderSide.none)),
+                          ),
                         ),
                         width: 350,
                         height: 285,

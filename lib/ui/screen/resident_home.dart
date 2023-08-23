@@ -1,3 +1,6 @@
+import 'package:aqcss/navigation/navigator_push.dart';
+import 'package:aqcss/ui/screen/contact_screen.dart';
+import 'package:aqcss/ui/screen/create%20a%20pass.dart';
 import 'package:aqcss/utils/constant.dart';
 import 'package:aqcss/utils/customtext.dart';
 import 'package:flutter/material.dart';
@@ -86,32 +89,37 @@ class _ResidentHomeState extends State<ResidentHome> {
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.grey,
                             elevation: 5,
-                            child: Container(
-                              height: 150,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Colors.white, width: 2),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 50,
-                                    width: 50,
-                                    child: Align(
-                                        alignment: Alignment.center,
-                                        child: Image.asset(
-                                            'assets/images/iso-blue 3.png')),
-                                  ),
-                                  CustomText(
-                                      text: 'Create a Pass',
-                                      fontsize: 12,
-                                      fontWeight: FontWeight.w700,
-                                      textcolor: Colors.black),
-                                ],
+                            child: InkWell(
+                              onTap: () {
+                                NavigationHelper.navPush(CreatePasss(), context);
+                              },
+                              child: Container(
+                                height: 150,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(color: Colors.white, width: 2),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      width: 50,
+                                      child: Align(
+                                          alignment: Alignment.center,
+                                          child: Image.asset(
+                                              'assets/images/iso-blue 3.png')),
+                                    ),
+                                    CustomText(
+                                        text: 'Create a Pass',
+                                        fontsize: 12,
+                                        fontWeight: FontWeight.w700,
+                                        textcolor: Colors.black),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -124,31 +132,36 @@ class _ResidentHomeState extends State<ResidentHome> {
                             color: Colors.grey,
                             borderRadius: BorderRadius.circular(20),
                             elevation: 5,
-                            child: Container(
-                              height: 150,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20),
-                                  border:
-                                      Border.all(color: Colors.white, width: 2)),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 50,
-                                    width: 50,
-                                    child: Image.asset(
-                                      'assets/icons/users.png',
+                            child: InkWell(
+                              onTap: () {
+                                NavigationHelper.navPush(ContactScreen(), context);
+                              },
+                              child: Container(
+                                height: 150,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20),
+                                    border:
+                                        Border.all(color: Colors.white, width: 2)),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      width: 50,
+                                      child: Image.asset(
+                                        'assets/icons/users.png',
+                                      ),
                                     ),
-                                  ),
-                                  CustomText(
-                                      text: 'Go to contacts',
-                                      fontsize: 14,
-                                      fontWeight: FontWeight.w600,
-                                      textcolor: Colors.black)
-                                ],
+                                    CustomText(
+                                        text: 'Go to contacts',
+                                        fontsize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        textcolor: Colors.black)
+                                  ],
+                                ),
                               ),
                             ),
                           ),

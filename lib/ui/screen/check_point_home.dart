@@ -1,7 +1,7 @@
 import 'package:aqcss/navigation/navigator_push.dart';
-import 'package:aqcss/ui/screen/account_setting.dart';
-import 'package:aqcss/ui/screen/resident_manager.dart';
+import 'package:aqcss/ui/screen/registor_visitor.dart';
 import 'package:aqcss/ui/screen/visitor_history.dart';
+import 'package:aqcss/ui/screen/visitor_historydrk.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/constant.dart';
@@ -9,14 +9,14 @@ import '../../utils/customtext.dart';
 import 'check_point_home.dart';
 import 'create_artical.dart';
 
-class ManagerHome extends StatefulWidget {
-  const ManagerHome({Key? key}) : super(key: key);
+class CheckPointHome extends StatefulWidget {
+  const CheckPointHome({Key? key}) : super(key: key);
 
   @override
-  State<ManagerHome> createState() => _ManagerHomeState();
+  State<CheckPointHome> createState() => _CheckPointHomeState();
 }
 
-class _ManagerHomeState extends State<ManagerHome> {
+class _CheckPointHomeState extends State<CheckPointHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class _ManagerHomeState extends State<ManagerHome> {
         elevation: 0,
         title: Text(''),
         flexibleSpace:
-            Container(decoration: BoxDecoration(gradient: primarygreen)),
+        Container(decoration: BoxDecoration(gradient: primarydarkblue)),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -37,7 +37,7 @@ class _ManagerHomeState extends State<ManagerHome> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                        gradient: primarygreen,
+                        gradient: primarydarkblue,
                         borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(40),
                             bottomLeft: Radius.circular(40))),
@@ -120,38 +120,33 @@ class _ManagerHomeState extends State<ManagerHome> {
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.grey,
                             elevation: 5,
-                            child: InkWell(
-                              onTap: () {
-                                NavigationHelper.navPush(VisitorHistory(), context);
-                              },
-                              child: Container(
-                                height: 150,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20),
-                                  border:
-                                      Border.all(color: Colors.white, width: 2),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      width: 50,
-                                      child: Align(
-                                          alignment: Alignment.center,
-                                          child: Image.asset(
-                                              'assets/icons/calendar-clockgreen (1).png')),
-                                    ),
-                                    CustomText(
-                                        text: 'Visitor History',
-                                        fontsize: 12,
-                                        fontWeight: FontWeight.w700,
-                                        textcolor: Colors.black),
-                                  ],
-                                ),
+                            child: Container(
+                              height: 150,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                                border:
+                                Border.all(color: Colors.white, width: 2),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: 50,
+                                    width: 50,
+                                    child: Align(
+                                        alignment: Alignment.center,
+                                        child: Image.asset(
+                                            'assets/icons/mode-portraitdrk 1.png')),
+                                  ),
+                                  CustomText(
+                                      text: 'Verify QR Pass',
+                                      fontsize: 12,
+                                      fontWeight: FontWeight.w700,
+                                      textcolor: Colors.black),
+                                ],
                               ),
                             ),
                           ),
@@ -164,34 +159,34 @@ class _ManagerHomeState extends State<ManagerHome> {
                             color: Colors.grey,
                             borderRadius: BorderRadius.circular(20),
                             elevation: 5,
-                            child: InkWell(
-                              onTap: (){NavigationHelper.navPush(Resident_Manager(), context);},
-                              child: Container(
-                                height: 150,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                        color: Colors.white, width: 2)),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
+                            child: Container(
+                              height: 150,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(
+                                      color: Colors.white, width: 2)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    onTap: (){NavigationHelper.navPush(RegistorVisitor(), context);},
+                                    child: Container(
                                       height: 50,
                                       width: 50,
                                       child: Image.asset(
-                                        'assets/icons/Vectorgreen.png',
+                                        'assets/icons/id-card-clipdrk-alt 1.png',
                                       ),
                                     ),
-                                    CustomText(
-                                        text: 'Resident Manager',
-                                        fontsize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        textcolor: Colors.black),
-                                  ],
-                                ),
+                                  ),
+                                  CustomText(
+                                      text: 'Register a Visitor',
+                                      fontsize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      textcolor: Colors.black),
+                                ],
                               ),
                             ),
                           ),
@@ -282,20 +277,21 @@ class _ManagerHomeState extends State<ManagerHome> {
             //     ),
             //   ),
             // ),
-            Row(
-              children: [
-                Expanded(
-                  child: PhysicalModel(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  PhysicalModel(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.grey,
                     elevation: 5,
                     child: InkWell(
                       onTap: (){
-                        NavigationHelper.navPush(CreateArtical(), context);
+                        NavigationHelper.navPush(VisitorDrkHistory(), context);
                       },
                       child: Container(
                         height: 150,
-                        width: 150,
+                        width: 160,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
@@ -311,10 +307,10 @@ class _ManagerHomeState extends State<ManagerHome> {
                               child: Align(
                                   alignment: Alignment.center,
                                   child: Image.asset(
-                                      'assets/icons/commentgreen-alt 1.png')),
+                                      'assets/icons/calendar-clockdrk (1).png')),
                             ),
                             CustomText(
-                                text: 'Create Article',
+                                text: 'Visitor History',
                                 fontsize: 12,
                                 fontWeight: FontWeight.w700,
                                 textcolor: Colors.black),
@@ -323,49 +319,49 @@ class _ManagerHomeState extends State<ManagerHome> {
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  width: 16,
-                ),
-                Expanded(
-                  child: PhysicalModel(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(20),
-                    elevation: 5,
-                    child: InkWell(
-                      onTap: () {
-                        NavigationHelper.navPush(AccountSetting(), context);
-                      },
-                      child: Container(
-                        height: 150,
-                        width: 150,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.white, width: 2)),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 50,
-                              child: Image.asset(
-                                'assets/icons/settingsgreen-sliders 1.png',
-                              ),
-                            ),
-                            CustomText(
-                                text: 'Settings',
-                                fontsize: 14,
-                                fontWeight: FontWeight.w600,
-                                textcolor: Colors.black),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+                  // SizedBox(
+                  //   width: 16,
+                  // ),
+                  // Expanded(
+                  //   child: PhysicalModel(
+                  //     color: Colors.grey,
+                  //     borderRadius: BorderRadius.circular(20),
+                  //     elevation: 5,
+                  //     child: InkWell(
+                  //       onTap: () {
+                  //         NavigationHelper.navPush(CheckPointHome(), context);
+                  //       },
+                  //       child: Container(
+                  //         height: 150,
+                  //         width: 150,
+                  //         decoration: BoxDecoration(
+                  //             color: Colors.white,
+                  //             borderRadius: BorderRadius.circular(20),
+                  //             border: Border.all(color: Colors.white, width: 2)),
+                  //         child: Column(
+                  //           crossAxisAlignment: CrossAxisAlignment.center,
+                  //           mainAxisAlignment: MainAxisAlignment.center,
+                  //           children: [
+                  //             Container(
+                  //               height: 50,
+                  //               width: 50,
+                  //               child: Image.asset(
+                  //                 'assets/icons/calendar-clockdrk (1).png',
+                  //               ),
+                  //             ),
+                  //             CustomText(
+                  //                 text: 'Go to contacts',
+                  //                 fontsize: 14,
+                  //                 fontWeight: FontWeight.w600,
+                  //                 textcolor: Colors.black),
+                  //           ],
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                ],
+              ),
             ),
           ],
         ),
